@@ -14,14 +14,13 @@ Run:
 - apt-get install python-cwiid
 - apt-get install bluetooth
 
-Check that bluetooth is running:
+Bluetooth commands:
 - service bluetooth status
-
-If not, start it:
 - /etc/init.d/bluetooth start
-
-Verify address of bluetooth dongle:
 - hcitool dev
 
 For more wiimote goodness:
 - http://www.brianhensley.net/2012/08/wii-controller-raspberry-pi-python.html
+
+For more GPIO goodness:
+- http://makezine.com/projects/tutorial-raspberry-pi-gpio-pins-and-python/
