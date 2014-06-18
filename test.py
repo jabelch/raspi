@@ -2,6 +2,8 @@ import cwiid
 import time
 wm = cwiid.Wiimote()
 
+BTN_B = 4
+
 time.sleep(1)
 
 for i in range(16):
@@ -13,7 +15,7 @@ for i in range(16):
 
 wm.rpt_mode = cwiid.RPT_BTN
 old_btn = 0
-power = 0 #power off
+power = False #power off
 
 while(True):
   btn = wm.state['buttons']
@@ -26,11 +28,8 @@ while(True):
     time.sleep(.1)
     continue
   else:
-    if btn == 4:
-      if power == 0:
-        power = 1
-      else:
-        power = 0
+    if (btn & BTN_B) == BTN_B:
+      power = not power #toggle the power (True->False, False->True)
       print 'power = ' + str(power)
 
     print btn
